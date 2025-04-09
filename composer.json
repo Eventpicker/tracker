@@ -17,16 +17,16 @@
 
     "require": {
         "php": ">=8.0",
-        "doctrine/dbal": "^2.6",
-        "laravel/framework": "~5|^6.0|^7.0|^8.0|^9",
-        "pragmarx/support": "~0.6|~0.7|~0.8|~0.9",
+        "doctrine/dbal": "^4.2.1",
+        "laravel/framework": "~5|~6|~7|~8|~9|~10|~11",
+        "pragmarx/support": "1.0.0",
         "ramsey/uuid": "^3 || ^4",
         "jenssegers/agent": "^2.6",
-        "ua-parser/uap-php" : "~3.4",
+        "ua-parser/uap-php" : "^3",
         "pragmarx/datatables": "^1.4.12",
         "snowplow/referer-parser": "~0.1",
         "jaybizzle/crawler-detect": "~1.0",
-        "psr/log": "^1"
+        "psr/log": "^1.1 || ^2.0 || ^3.0"
     },
 
     "suggest": {
@@ -35,7 +35,7 @@
     },
 
     "require-dev": {
-        "mockery/mockery": "~0.8"
+        "mockery/mockery": "1.6.12"
     },
 
     "autoload": {
