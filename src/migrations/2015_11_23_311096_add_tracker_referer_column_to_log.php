@@ -20,7 +20,7 @@ class AddTrackerRefererColumnToLog extends Migration
      */
     public function up()
     {
-        Schema::create($this->table, function (Blueprint $table) {
+        Schema::table($this->table, function (Blueprint $table) {
             $table->integer('referer_id')->unsigned()->nullable()->index();
         });
     }

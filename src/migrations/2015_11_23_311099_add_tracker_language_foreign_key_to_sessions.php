@@ -21,7 +21,7 @@ class AddTrackerLanguageForeignKeyToSessions extends Migration
      */
     public function up()
     {
-        Schema::create($this->table, function (Blueprint $table) {
+        Schema::table($this->table, function (Blueprint $table) {
             $table->foreign('language_id')
             ->references('id')
             ->on('tracker_languages')

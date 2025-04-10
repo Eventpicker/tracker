@@ -22,7 +22,7 @@ class AddAgentNameHash extends Migration
     public function up()
     {
         try {
-            Schema::create($this->table, function (Blueprint $table) {
+            Schema::table($this->table, function (Blueprint $table) {
                 $table->dropUnique('tracker_agents_name_unique');
                 $table->string('name_hash', 65)->nullable();
             });
@@ -33,7 +33,7 @@ class AddAgentNameHash extends Migration
                 $agent->save();
             });
 
-            Schema::create($this->table, function (Blueprint $table) {
+            Schema::table($this->table, function (Blueprint $table) {
                 $table->unique('name_hash');
             });
         } catch (\Exception $e) {

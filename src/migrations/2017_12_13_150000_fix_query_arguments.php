@@ -21,7 +21,7 @@ class FixQueryArguments extends Migration
     public function up()
     {
         try {
-            Schema::create($this->table, function (Blueprint $table) {
+            Schema::table($this->table, function (Blueprint $table) {
                 $table->string('value')->nullable()->change();
             });
         } catch (\Exception $e) {

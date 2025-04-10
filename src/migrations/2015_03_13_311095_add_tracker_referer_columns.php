@@ -22,13 +22,13 @@ class AddTrackerRefererColumns extends Migration
      */
     public function up()
     {
-        Schema::create($this->table, function (Blueprint $table) {
+        Schema::table($this->table, function (Blueprint $table) {
             $table->string('medium')->nullable()->index();
             $table->string('source')->nullable()->index();
             $table->string('search_terms_hash')->nullable()->index();
         });
 
-        Schema::create($this->foreign, function (Blueprint $table) {
+        Schema::table($this->foreign, function (Blueprint $table) {
             $table->foreign('referer_id', 'tracker_referers_referer_id_fk')
                 ->references('id')
                 ->on('tracker_referers')

@@ -12,7 +12,7 @@ class FixAgentName extends Migration
      * @var string
      */
     private $table = 'tracker_agents';
-    
+
     /**
      * Run the migrations.
      *
@@ -21,15 +21,15 @@ class FixAgentName extends Migration
     public function up()
     {
         try {
-            Schema::create($this->table, function (Blueprint $table) {
+            Schema::table($this->table, function (Blueprint $table) {
                 $table->dropUnique('tracker_agents_name_unique');
             });
 
-            Schema::create($this->table, function (Blueprint $table) {
+            Schema::table($this->table, function (Blueprint $table) {
                 $table->mediumText('name')->change();
             });
 
-            Schema::create($this->table, function (Blueprint $table) {
+            Schema::table($this->table, function (Blueprint $table) {
                 $table->unique('id', 'tracker_agents_name_unique'); // this is a dummy index
             });
         } catch (\Exception $e) {

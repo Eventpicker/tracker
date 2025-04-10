@@ -20,7 +20,7 @@ class AddLanguageIdColumnToSessions extends Migration
      */
     public function up()
     {
-        Schema::create($this->table, function (Blueprint $table) {
+        Schema::table($this->table, function (Blueprint $table) {
             $table->bigInteger('language_id')->unsigned()->nullable()->index();
         });
     }
