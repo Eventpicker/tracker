@@ -1,6 +1,8 @@
 <?php
 
-use PragmaRX\Tracker\Support\Migration;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class FixQueryArguments extends Migration
 {
@@ -16,15 +18,12 @@ class FixQueryArguments extends Migration
      *
      * @return void
      */
-    public function migrateUp()
+    public function up()
     {
         try {
-            $this->builder->table(
-                $this->table,
-                function ($table) {
-                    $table->string('value')->nullable()->change();
-                }
-            );
+            Schema::create($this->table, function (Blueprint $table) {
+                $table->string('value')->nullable()->change();
+            });
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
@@ -35,15 +34,12 @@ class FixQueryArguments extends Migration
      *
      * @return void
      */
-    public function migrateDown()
+    public function down()
     {
         try {
-            $this->builder->table(
-                $this->table,
-                function ($table) {
-                    $table->string('value')->change();
-                }
-            );
+            Schema::table($this->table, function (Blueprint $table) {
+                $table->string('value')->change();
+            });
         } catch (\Exception $e) {
             dd($e->getMessage());
         }

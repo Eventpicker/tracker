@@ -1,6 +1,8 @@
 <?php
 
-use PragmaRX\Tracker\Support\Migration;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class AddNullableToTrackerError extends Migration
 {
@@ -16,17 +18,15 @@ class AddNullableToTrackerError extends Migration
      *
      * @return void
      */
-    public function migrateUp()
+    public function up()
     {
         try {
-            $this->builder->table(
-                $this->table,
-                function ($table) {
-                    $table->string('code')->nullable()->change();
-                }
-            );
+            Schema::create($this->table, function (Blueprint $table) {
+                $table->string('code')->nullable()->change();
+            });
         } catch (\Exception $e) {
         }
+
     }
 
     /**
@@ -34,7 +34,7 @@ class AddNullableToTrackerError extends Migration
      *
      * @return void
      */
-    public function migrateDown()
+    public function down()
     {
     }
 }
