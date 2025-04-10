@@ -1,6 +1,8 @@
 <?php
 
-use PragmaRX\Tracker\Support\Migration;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateTrackerSqlQueriesLogTable extends Migration
 {
@@ -16,21 +18,18 @@ class CreateTrackerSqlQueriesLogTable extends Migration
      *
      * @return void
      */
-    public function migrateUp()
+    public function up()
     {
-        $this->builder->create(
-            $this->table,
-            function ($table) {
-                $table->bigIncrements('id');
+        Schema::create($this->table, function (Blueprint $table) {
+            $table->bigIncrements('id');
 
-                $table->bigInteger('log_id')->unsigned()->index();
-                $table->bigInteger('sql_query_id')->unsigned()->index();
+            $table->bigInteger('log_id')->unsigned()->index();
+            $table->bigInteger('sql_query_id')->unsigned()->index();
 
-                $table->timestamps();
-                $table->index('created_at');
-                $table->index('updated_at');
-            }
-        );
+            $table->timestamps();
+            $table->index('created_at');
+            $table->index('updated_at');
+        });
     }
 
     /**
@@ -38,8 +37,8 @@ class CreateTrackerSqlQueriesLogTable extends Migration
      *
      * @return void
      */
-    public function migrateDown()
+    public function down()
     {
-        $this->drop($this->table);
+        Schema::dropIfExists($this->table);
     }
 }
