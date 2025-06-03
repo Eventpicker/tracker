@@ -8,6 +8,11 @@ return [
     'enabled' => false,
 
     /*
+     * Logging of untrackables
+     */
+    'log_untrackables' => false,
+
+    /*
      * Enable cache?
      */
     'cache_enabled' => true,
