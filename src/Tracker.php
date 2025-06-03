@@ -303,7 +303,7 @@ class Tracker
             $this->config->get('do_not_track_environments')
         );
 
-        if (!$trackable && $this->config->get('log_untrackables')) {
+        if (!$trackable) {
             $this->logUntrackable('environment '.$this->laravel->environment().' is not trackable.');
         }
 
@@ -317,7 +317,7 @@ class Tracker
             $this->config->get('do_not_track_ips')
         );
 
-        if (!$trackable && $this->config->get('log_untrackables')) {
+        if (!$trackable) {
             $this->logUntrackable($ipAddress.' is not trackable.');
         }
 
@@ -362,7 +362,7 @@ class Tracker
             $this->config->get('log_routes') ||
             $this->config->get('log_exceptions');
 
-        if (!$enabled && $this->config->get('log_untrackables')) {
+        if (!$enabled) {
             $this->logUntrackable('there are no log items enabled.');
         }
 
@@ -386,8 +386,8 @@ class Tracker
         $trackable =
             !$this->isRobot() ||
             !$this->config->get('do_not_track_robots');
-   
-        if (!$trackable && $this->config->get('log_untrackables')) {
+
+        if (!$trackable) {
             $this->logUntrackable('tracking of robots is disabled.');
         }
 
@@ -428,7 +428,7 @@ class Tracker
             return false;
         }
 
-        if (!$trackable = $this->dataRepositoryManager->routeIsTrackable($this->route) && $this->config->get('log_untrackables')) {
+        if (!$trackable = $this->dataRepositoryManager->routeIsTrackable($this->route)) {
             $this->logUntrackable('route '.$this->route->getCurrentRoute()->getName().' is not trackable.');
         }
 
@@ -437,7 +437,7 @@ class Tracker
 
     public function pathIsTrackable()
     {
-        if (!$trackable = $this->dataRepositoryManager->pathIsTrackable($this->request->path()) && $this->config->get('log_untrackables')) {
+        if (!$trackable = $this->dataRepositoryManager->pathIsTrackable($this->request->path())) {
             $this->logUntrackable('path '.$this->request->path().' is not trackable.');
         }
 
