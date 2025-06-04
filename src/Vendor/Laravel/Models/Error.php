@@ -7,6 +7,7 @@ class Error extends Base
     protected $table = 'tracker_errors';
 
     protected $fillable = [
+        'trace',
         'message',
         'code',
     ];
