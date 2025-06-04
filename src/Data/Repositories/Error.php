@@ -23,4 +23,12 @@ class Error extends Repository
             return $code;
         }
     }
+
+    public function getTraceFromThrowable($throwable)
+    {
+        if (method_exists($throwable, 'getTraceAsString') && $trace = $throwable->getTraceAsString()) {
+            return $trace;
+        }
+        return null;
+    }
 }

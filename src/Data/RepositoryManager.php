@@ -482,10 +482,11 @@ class RepositoryManager implements RepositoryManagerInterface
     {
         $error_id = $this->errorRepository->findOrCreate(
             [
+                'trace' => $this->errorRepository->getTraceFromThrowable($throwable),
                 'message' => $this->errorRepository->getMessageFromThrowable($throwable),
                 'code'    => $this->errorRepository->getCodeFromThrowable($throwable),
             ],
-            ['message', 'code']
+            ['trace','message', 'code']
         );
 
         return $this->logRepository->updateError($error_id);
