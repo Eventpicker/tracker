@@ -18,12 +18,16 @@
         {
             "type":"vcs",
             "url": "https://github.com/Eventpicker/laravel4-datatables-package"
+        },
+        {
+            "type":"vcs",
+            "url": "https://github.com/Eventpicker/support"
         }
     ],
     "require": {
         "php": ">=8.2",
         "laravel/framework": "^11.0",
-        "pragmarx/support": "^0.9",
+        "pragmarx/support": "dev-master",
         "ramsey/uuid": "^4",
         "jenssegers/agent": "^2.6",
         "ua-parser/uap-php" : "^3",
