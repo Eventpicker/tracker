@@ -14,7 +14,12 @@
             "role": "Creator & Designer"
         }
     ],
-
+    "repositories": [
+        {
+            "type":"vcs",
+            "url": "https://github.com/Eventpicker/laravel4-datatables-package"
+        }
+    ],
     "require": {
         "php": ">=8.2",
         "laravel/framework": "^11.0",
@@ -22,7 +27,7 @@
         "ramsey/uuid": "^4",
         "jenssegers/agent": "^2.6",
         "ua-parser/uap-php" : "^3",
-        "pragmarx/datatables": "^1.4.12",
+        "pragmarx/datatables": "dev-master",
         "snowplow/referer-parser": "~0.1",
         "jaybizzle/crawler-detect": "^1.2",
         "psr/log": "^3.0"
